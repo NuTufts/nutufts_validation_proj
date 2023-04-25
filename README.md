@@ -6,7 +6,7 @@ Created: April 2023
 ### Overview
 This repository contains code used for running inference & validation on the [lartpc\_mlreco3d](https://github.com/NuTufts/lartpc_mlreco3d) neural network trained on simulated MicroBooNE data for the Tufts Neutrino Group (specifically by the Wongjirad Lab). 
 The point of the network is to help in the pipeline of turning raw data from a LArTPC detector into information we can analyze to do physics. Specifically, it looks at where energy was deposited in voxels in the detector and tries to figure out which voxels are part of particle events, what particles were involved in the event, and how they may have interacted. 
-The network was originally trained on the PILArNet open data set ([Domine et al 2021])(https://journals.aps.org/prd/pdf/10.1103/PhysRevD.104.032004). This dataset contains simulated events which are non-detector specific. 
+The network was originally trained on the PILArNet open data set ([Domine et al 2021](https://journals.aps.org/prd/pdf/10.1103/PhysRevD.104.032004)). This dataset contains simulated events which are non-detector specific. 
 The goal of the work here for the Wongjirad Lab is to help in the training of the network on data simulated to look like that from the MicroBooNE detector. 
 The scripts in this repository use checkpoints (weights and biases) from a network training run, the configuration file it was trained with, and validation data the network has never seen to analyze how it performs on data it's never seen as it trained. These statistics help us understand whether the network works and when it starts to overfit as well as allowing us to quantify how different training techniques and parameters affect the network's performance. 
 
