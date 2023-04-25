@@ -1,5 +1,6 @@
 # A collection of LArTPC mlreco3d Inference & Validation Analysis tools & learnings
 Author: Noah Stiegler
+
 Created: April 2023
 
 ### Overview
@@ -57,22 +58,22 @@ Follow these steps:
 Note: steps 4 & 5 will need to be repeated each time you log on / use icdl environment in a fresh shell
 
 ### Data
-The data we're using lartpc\_mlreco3d with is in the ROOT & ICDL format. It comes from 3x2D wireplane images in the MicroBooNE detector. The Neutrino Group has a method of reconstructing the 3d event from the wireplane images, which puts them into a sparse spacepoint format (in ROOT), which then need to be converted into a sparse voxel format (in ROOT) to use with lartpc\_mlreco3d. This reconstruction process isn't perfect, and creates ghost points (which are reconstructed points which don't actually exist, kind of like noise). In the ICDL data, a particle label of 5 means a ghost point. The config files we use also tell mlreco this is the ghost point label, but it outputs its predictions about ghost points separately. The ROOT files which contain the data often have 50-100 events. The main create\_mlreco\_validation\_analysi\_data.py script in this repository runs inference on all events in a ROOT file. Hypothetically, the network can take many ROOT files as input. 
+The data we're using lartpc\_mlreco3d with is in the ROOT & ICDL format. It comes from 3x2D wireplane images in the MicroBooNE detector. The Neutrino Group has a method of reconstructing the 3d event from the wireplane images, which puts them into a sparse spacepoint format (in ROOT), which then need to be converted into a sparse voxel format (in ROOT) to use with lartpc\_mlreco3d. This reconstruction process isn't perfect, and creates ghost points (which are reconstructed points which don't actually exist, kind of like noise). In the ICDL data, a particle label of 5 means a ghost point. The config files we use also tell mlreco this is the ghost point label, but it outputs its predictions about ghost points separately. The ROOT files which contain the data often have 50-100 events. The main create\_mlreco\_validation\_analysis_data.py script in this repository runs inference on all events in a ROOT file. Hypothetically, the network can take many ROOT files as input. 
 
 #### Classification Labels
 ##### From UResNet
-0 = protons
-1 = MIPs (minimum ionizing particles like muon or pion)
-2 = EM showers (electron, positron, photon)
-3 = Delta ray electrons (hard scattering off of charged particles)
-4 = Michel electrons (decay of muons)  
-(5 = ghost)
+- 0 = protons
+- 1 = MIPs (minimum ionizing particles like muon or pion)
+- 2 = EM showers (electron, positron, photon)
+- 3 = Delta ray electrons (hard scattering off of charged particles)
+- 4 = Michel electrons (decay of muons)  
+- (5 = ghost)
 ##### From later in the network chain
-0 = photon
-1 = e+/-
-2 = Mu +/-
-3 = pi+/-
-4 = protons
+- 0 = photon
+- 1 = e+/-
+- 2 = Mu +/-
+- 3 = pi+/-
+- 4 = protons
 
 
 ### Related Tutorials
