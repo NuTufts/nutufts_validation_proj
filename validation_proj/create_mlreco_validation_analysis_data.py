@@ -16,7 +16,9 @@
 # THIS LINE MAY NEED TO BE CHANGED BASED ON THE SYSTEM THE SCRIPT IS RUN ON
 # it should point to the local lartpc_mlreco3d clone
 ################################################
-SOFTWARE_DIR = "/home/nstieg01/lartpc_mlreco3d" # <------ Change this if necessary
+# SOFTWARE_DIR = "/home/nstieg01/lartpc_mlreco3d" # trex <------ Change this if necessary
+SOFTWARE_DIR = "/cluster/home/nstieg01/lartpc_mlreco3d" # Cluster
+# SOFTWARE_DIR = "/cluster/tufts/wongjiradlabnu/twongj01/mlreco/lartpc_mlreco3d" # Other cluster from debugging
 ###############################################
 
 # For reference
@@ -144,8 +146,11 @@ cfg["iotool"]["sampler"]["name"] = "SequentialBatchSampler"
 # Add a new parser to look at cosmic_origin
 cfg["iotool"]["dataset"]["schema"]["cosmic_origin"] = {"parser": "parse_sparse3d", "args": {"sparse_event_list": ["sparse3d_cosmic_origin"]}}
 
-# Set to run on no GPUs because otherwise it crashes -- hopefully we find a fix soon
-cfg["trainval"]["gpus"] = []
+# If on the cluster, this can be [0]
+# If on trex, has to be []
+# IF ON TREX:  Set to run on no GPUs because otherwise it crashes -- hopefully we find a fix soon
+# Note: works on cluster
+cfg["trainval"]["gpus"] = [0] # 
 
 # Make sure the cfg has what we need
 schema = cfg["iotool"]["dataset"]["schema"]
