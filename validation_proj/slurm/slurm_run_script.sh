@@ -4,6 +4,9 @@
 JOBSTARTDATE=$(date)
 echo "running job number ${SLURM_JOB_ID} with array ID ${SLURM_ARRAY_TASK_ID} on node ${SLURMD_NODENAME}"
 
+# Setup environment
+source /cluster/home/nstieg01/scripts/setup_icdl.sh
+
 # Define what this script is doing
 # Which snapshot are we on? Array goes from 0-9
 # Snapshots go 9999-759999, increasing by 10,000
@@ -34,8 +37,8 @@ for n in $(seq $firstfile $lastfile); do
   FILE_PATH="${PATH_TO_DATA}${newfile}"
   echo "Processing: ${FILE_PATH}"
   OUTPUT_FILE="${OUTPUT_DIR}analysis_data_${snapshot_num}_${newfile}.npy"
-  # python3 ${SCRIPT_PATH} --verbose ${CONFIG} ${SNAPSHOT} ${FILE_PATH} ${OUTPUT_FILE}
-  echo "${SCRIPT_PATH} --verbose ${CONFIG} ${SNAPSHOT} ${FILE_PATH} ${OUTPUT_FILE}"
+  python3 ${SCRIPT_PATH} --verbose ${CONFIG} ${SNAPSHOT} ${FILE_PATH} ${OUTPUT_FILE}
+  # echo "${SCRIPT_PATH} --verbose ${CONFIG} ${SNAPSHOT} ${FILE_PATH} ${OUTPUT_FILE}"
 done
 
 
