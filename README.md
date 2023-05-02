@@ -12,7 +12,7 @@ The scripts in this repository use checkpoints (weights and biases) from a netwo
 
 The ultimate goal of these projects is to better understand neutrinos by collecting data about them. Neutrinos are fundamental particles which interact through the weak force and gravity. They interact rarely, so they're very hard to detect. We don't fully understand neutrinos and how they fit in the standard model, and we hope these experiments will help us learn new physics.
 
-[Example Workflow with Repository](/images/Group%20Update%20Validation%20Analysis%205_2_23.png)
+![Example Workflow with Repository](/images/Group%20Update%20Validation%20Analysis%205_2_23.png)
 
 ### Files:
 - `validation\_proj`:  ipython notebooks and scripts used in running analysis on validation data from the training run of the network
