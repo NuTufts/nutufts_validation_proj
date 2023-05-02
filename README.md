@@ -12,7 +12,7 @@ The scripts in this repository use checkpoints (weights and biases) from a netwo
 
 The ultimate goal of these projects is to better understand neutrinos by collecting data about them. Neutrinos are fundamental particles which interact through the weak force and gravity. They interact rarely, so they're very hard to detect. We don't fully understand neutrinos and how they fit in the standard model, and we hope these experiments will help us learn new physics.
 
-![Example Workflow with Repository](./images/Group Update Validation Analysis 5_2_23.png)
+[Example Workflow with Repository](/images/Group%20Update%20Validation%20Analysis%205_2_23.png)
 
 ### Files:
 - `validation\_proj`:  ipython notebooks and scripts used in running analysis on validation data from the training run of the network
@@ -76,17 +76,16 @@ Follow these steps:
 **Note**: steps 4 & 5 will need to be repeated each time you log on / use icdl environment in a fresh shell
 
 ### Environments on the Tufts Cluster
-For running lartpc\_mlreco3d
+**For running lartpc\_mlreco3d**
 1) Log into Tufts HPC
-2) Start an interactive compute node with a GPU.
-2a) `srun --pty -p wongjiradlab --mem-per-cpu=4000 --cpus-per-task=2 --gres=gpu --time 2:00:00 bash`
+2) Start an interactive compute node with a GPU `srun --pty -p wongjiradlab --mem-per-cpu=4000 --cpus-per-task=2 --gres=gpu --time 2:00:00 bash`
 3) Load a singularity container with some of the packages needed. `module load singularity/3.5.3` `singularity run --nv --bind /cluster/tufts/:/cluster/tufts/,/tmp:/tmp /cluster/tufts/wongjiradlabnu/larbys/larbys-container/singularity_minkowskiengine_u20.04.cu111.torch1.9.0_comput8.sif)`
 4) Locally install any other needed Python packages - see Setting Up lartpc\_mlreco3d section above
 5) `alias python=python3` to make sure we're using python3 not python2
 6) `source /cluster/home/nstieg01/scripts/setup_icdl.sh` to set up the icdl environment with ROOT or alternatively run `source setenv_py3.sh` and `source configure.sh` in the icdl directory. The above command just runs these files
 7) Run the network!
 
-For using jupyter notebook to plot (such as with `many\_analyses\_plots.ipynb`):
+**For using jupyter notebook to plot (such as with `many\_analyses\_plots.ipynb`):**
 1) Log into Tufts HPC
 2) Start an interactive compute node and write down the name of the node. It should be the new prompt. For example the node name might be **p1cmp075**: `srun --pty -p wongjiradlab --mem-per-cpu=4000 --cpus-per-task=2 --gres=gpu --time 2:00:00 bash`
 3) Load a singularity environment with jupyter notebooks in it. I've been using `/cluster/tufts/minos/jwolcott/data/singularity-images/ub20.04-cuda11.0-pytorch1.7.1-larndsim.sif`. The script `/cluster/home/nstieg01/scripts/setup_singularity_old.sh` will do exactly this
