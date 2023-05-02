@@ -19,9 +19,17 @@ The ultimate goal of these projects is to better understand neutrinos by collect
     - load\_plot\_analysis.ipynb: Notebook walking through loading the data saved by the create\_mlreco... script and plotting confusion matrices from it
     - Look At Training Run Statistics.ipynb: Notebook walking through loading and looking at the saved statistics from the network's training
     - ubmlreco\_inference.ipynb: Reference notebook (not documented)
-    - validation\_analysis.ipynb Notebook walking through loading the lartpc\_mlreco3d network and running inference on it 
+    - validation\_analysis.ipynb Notebook walking through loading the lartpc\_mlreco3d network and running inference on it
+    - many\_analyses\_plots.ipynb: A notebook for creating plots from the inference and analysis of many checkpoints on many validation files. Takes many .npy saved files and loads them to make plots.
+  - slurm: A folder containing scripts for running jobs on the tufts cluster using slurm - the job scheduler. 
+    - slurm\_submit\_script.sh: The script given to the sbatch command for the slurm scheduler. Starts a singularity container and runs the slurm\_run\_script.sh script in each of them. Uses an array of values to create several different jobs with different parameters. The array specifies different checkpoints for each sub-job to analyze with all data files in data\_files.txt
+    - slurm\_run\_script.sh: The script run in a singularity container by each job. Actually runs the create\_... script. Runs on a single checkpoint for all validation files in data\_files.txt
+    - targeted\_slurm\_submit\_script.sh: Same as the slurm\_submit script but modified to only run for a few checkpoints. Useful if a few of the jobs failed and need to be re-run. 
   - create\_mlreco\_validation\_analysis\_data.py: The main script of the repository - runs inference over all events in a .root file given a checkpoint and config
   - run\_create.sh: A helper script to run the above Python script and pass in arguments
+  - print\_total\_confusion\_matrix.py: A quick debug script to run on a .npy file created by the create\_mlreco... script in this file. Prints to terminal the total confusion matrix for voxels in all events in an analyzed file.
+  - full\_data\_files.txt: A running list of all validation data files we've run inference on so far. Used in many\_analyses\_plots.ipynb to know which .npy analyzed files exist.
+  - data\_files.txt: A list of validation files to run inference on when running the slurm run & submit scripts
 - old: some old files from earlier stages of the project of working with lartpc\_mlreco3d (such as voxelizing spacepoint data and training the network) which are no longer needed.
 
 ### Dependencies:
