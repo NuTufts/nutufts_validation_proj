@@ -65,8 +65,7 @@ The lartpc\_mlreco3d network can be worked with almost entirely in python. To ru
 
 ### Setting up icdl
 Follow these steps:
-1) `git clone https://github.com/NuTufts/icdl.git`
-1a) `cd icdl` (make sure you're in the icdl directory)
+1) `git clone https://github.com/NuTufts/icdl.git` and `cd icdl` (make sure you're in the icdl directory)
 2) `git submodule init` (because some of the folders in the repository are submodules which point to folders in other repositories, those folders are empty)
 3) `git submodule update` (fill empty folders)
 4) `source setenv\_py3.sh` (in icdl folder, sets up environment variables)
