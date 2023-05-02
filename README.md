@@ -20,7 +20,7 @@ The ultimate goal of these projects is to better understand neutrinos by collect
     - Look At Training Run Statistics.ipynb: Notebook walking through loading and looking at the saved statistics from the network's training
     - ubmlreco\_inference.ipynb: Reference notebook (not documented)
     - validation\_analysis.ipynb Notebook walking through loading the lartpc\_mlreco3d network and running inference on it
-    - many\_analyses\_plots.ipynb: A notebook for creating plots from the inference and analysis of many checkpoints on many validation files. Takes many .npy saved files and loads them to make plots.
+    - many\_analyses\_plots.ipynb: Extension of load\_plot\_analysis notebook for creating plots from the inference and analysis of many checkpoints on many validation files. Takes many .npy saved files and loads them to make plots.
   - slurm: A folder containing scripts for running jobs on the tufts cluster using slurm - the job scheduler. 
     - slurm\_submit\_script.sh: The script given to the sbatch command for the slurm scheduler. Starts a singularity container and runs the slurm\_run\_script.sh script in each of them. Uses an array of values to create several different jobs with different parameters. The array specifies different checkpoints for each sub-job to analyze with all data files in data\_files.txt
     - slurm\_run\_script.sh: The script run in a singularity container by each job. Actually runs the create\_... script. Runs on a single checkpoint for all validation files in data\_files.txt
