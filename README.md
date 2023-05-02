@@ -32,7 +32,7 @@ The ultimate goal of these projects is to better understand neutrinos by collect
   - `print\_total\_confusion\_matrix.py`: A quick debug script to run on a .npy file created by the `create\_mlreco...` script in this directory. Prints to terminal the total confusion matrix for voxels in all events in an analyzed file.
   - `full\_data\_files.txt`: A running list of all validation data files we've run inference on so far. Used in many\_analyses\_plots.ipynb to know which .npy analyzed files exist.
   - `data\_files.txt`: A list of validation files to run inference on when running the slurm run & submit scripts
-- old: some old files from earlier stages of the project of working with lartpc\_mlreco3d (such as voxelizing spacepoint data and training the network) which are no longer needed.
+- `old`: some old files from earlier stages of the project of working with lartpc\_mlreco3d (such as voxelizing spacepoint data and training the network) which are no longer needed.
 
 ### Dependencies:
 - [lartpc\_mlreco3d](https://github.com/NuTufts/lartpc_mlreco3d)
