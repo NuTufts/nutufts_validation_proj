@@ -87,12 +87,12 @@ Follow these steps:
 **For using jupyter notebook to plot (such as with `many\_analyses\_plots.ipynb`):**
 1) Log into Tufts HPC
 2) Start an interactive compute node and write down the name of the node. It should be the new prompt. For example the node name might be **p1cmp075**: `srun --pty -p wongjiradlab --mem-per-cpu=4000 --cpus-per-task=2 --gres=gpu --time 2:00:00 bash`
-3) Load a singularity environment with jupyter notebooks in it. I've been using `/cluster/tufts/minos/jwolcott/data/singularity-images/ub20.04-cuda11.0-pytorch1.7.1-larndsim.sif`. The script `/cluster/home/nstieg01/scripts/setup_singularity_old.sh` will do exactly this
-4) Make sure you're in the Bash shell by typing `bash` if you see the singularity prompt
-5) Setup the icdl environment. See step 6 above for running lartpc\_mlreco3d: `source /cluster/home/nstieg01/scripts/setup_icdl.sh`
-6) Start a jupyter notebook on a specific port on the compute node: `jupyter notebook --no-browser --port=8003`
+3) Load a singularity environment with jupyter notebooks in it. `/cluster/tufts/wongjiradlabnu/larbys/larbys-container/singularity_minkowskiengine_u20.04.cu111.torch1.9.0_compute8_wjupyternotebook.sif`. The script `start_singularity_container_tufts.sh` will do exactly this
+4) Make sure you're in the Bash shell by typing `bash` if you see the singularity prompt `Singularity>`.
+5) Setup the container environment: `source setenv_singularity_tufts.sh`
+6) Start a jupyter notebook on a specific port on the compute node: `jupyter notebook --no-browser --port=8003`. NOTE you can choose any port number. If you get an error message saying a porrt is in use, close the notebook by entering `CRTL+C` and run the above command again.
 7) Open a different terminal window on the computer you want to use jupyter notebook
-8) Forward the port from the compute node to your computer with a command like `ssh -tt username@login.cluster.tufts.edu -L 8003:localhost:8003 ssh NODE -L 8003:localhost:8003`, where NODE is replaced with the name of the compute node from step 2
+8) Forward the port from the compute node to your computer with a command like `ssh -tt [username]@login.cluster.tufts.edu -L 8003:localhost:8003 ssh [NODE] -L 8003:localhost:8003`, where NODE is replaced with the name of the compute node from step 2 and [username] is your username.
 9) Go back to the first terminal window and copy a link which jupyter notebook should put in the terminal in step 6 into a browser on the computer you want to work on, you should now have access! 
 
 
